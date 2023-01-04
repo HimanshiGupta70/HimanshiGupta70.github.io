@@ -1,0 +1,80 @@
+import React, { useContext, useEffect } from "react";
+import styles from "../Styles/contact.module.css";
+import { AiOutlineMail } from "react-icons/ai";
+import { BsTelephoneInbound } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
+import { FiTwitter } from "react-icons/fi";
+import { AiFillGithub } from "react-icons/ai";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { ScreenContext } from "../screenContext/ScreenContext";
+
+const Contact = () => {
+  const { windowDimensions } = useContext(ScreenContext);
+  const width = windowDimensions.width;
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
+  return (  
+    <div className={styles.contact} id={"contact"}>
+      <h1>Contacts</h1>
+      <div className={styles.contact_list}>
+        <div >
+          <a
+            
+            href="https://github.com/HimanshiGupta70"
+            target={"_balnk"}
+          >
+            <AiFillGithub className={styles.logo} />
+          </a>
+        </div>
+
+        <div >
+          <a
+            
+            href="mailto:guptaahimanshi70@gmail.com"
+            target={"_balnk"}
+          >
+            <AiOutlineMail className={styles.logo} />
+          </a>
+        </div>
+
+        <div
+          // data-aos={"zoom-in-up"}
+          className={styles.logo}
+          onClick={() => alert(`Phone no is 7651812178`)}
+        >
+          <BsTelephoneInbound className={styles.logo}  />
+        </div>
+
+        <div >
+          <a
+            
+            href="https://www.linkedin.com/in/himanshi-gupta-aab83b129/"
+            target={"_blank"}
+          >
+            <BsLinkedin className={styles.logo} />
+          </a>
+        </div>
+
+        <div >
+          <a
+            
+            href="https://twitter.com/GuptaaHimanshi"
+            target={"_blank"}
+          >
+            <FiTwitter className={styles.logo} />
+          </a>
+        </div>
+        
+      </div>
+      <div className={styles.copy}>
+        <h3>© 2022 copyright all right reserved</h3>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
